@@ -1,8 +1,5 @@
 # Shared
 
-[build]
-target-dir = "target"
-
 [profile.dev]
 lto = "off"
 
