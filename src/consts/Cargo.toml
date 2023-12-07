@@ -1,0 +1,16 @@
+[package]
+name = "mintaka-consts"
+version = "0.0.4"
+description = "Mintaka Consts"
+repository = "https://github.com/Tribufu/Mintaka"
+authors = ["Tribufu <contact@tribufu.com>"]
+license = "Apache-2.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "mintaka_consts"
+crate-type = ["rlib"]
+path = "lib.rs"
+
+[dependencies]

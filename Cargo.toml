@@ -1,0 +1,27 @@
+[package]
+name = "mintaka"
+version = "0.0.4"
+description = "Mintaka Native"
+repository = "https://github.com/Tribufu/Mintaka"
+authors = ["Tribufu <contact@tribufu.com>"]
+license = "Apache-2.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "mintaka"
+crate-type = ["rlib"]
+path = "src/lib.rs"
+
+[workspace]
+resolver = "2"
+members = ["src/*"]
+exclude = []
+
+[dependencies]
+mintaka-consts = { path = "./src/consts" }
+mintaka-fs = { path = "./src/fs" }
+mintaka-http = { path = "./src/http" }
+mintaka-io = { path = "./src/io" }
+mintaka-net = { path = "./src/net" }
+mintaka-time = { path = "./src/time" }

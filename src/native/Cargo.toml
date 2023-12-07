@@ -1,0 +1,17 @@
+[package]
+name = "mintaka-native"
+version = "0.0.4"
+description = "Mintaka Native"
+repository = "https://github.com/Tribufu/Mintaka"
+authors = ["Tribufu <contact@tribufu.com>"]
+license = "Apache-2.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "mintaka_native"
+crate-type = ["rlib", "cdylib", "staticlib"]
+path = "lib.rs"
+
+[dependencies]
+mintaka = { path = "../.." }
