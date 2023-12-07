@@ -1,0 +1,15 @@
+# Shared
+
+[build]
+target-dir = "target"
+
+[profile.dev]
+lto = "off"
+
+[profile.release]
+lto = "thin"
+
+# Windows
+
+[target.'cfg(target_os = "windows")']
+rustflags = ["-C", "target-feature=+crt-static"]
