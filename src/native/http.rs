@@ -1,7 +1,8 @@
 // Copyright (c) Tribufu. All Rights Reserved.
 
 use libc::{c_char, c_int};
-use std::ffi::CString;
+use reqwest::blocking::Client;
+use std::ffi::{CStr, CString};
 use std::ptr;
 
 #[repr(C)]
@@ -33,7 +34,7 @@ pub struct FHttpHeader {
 
 #[no_mangle]
 pub extern "C" fn mintaka_http_get(url: *const c_char) -> FHttpResponse {
-    let url_str = unsafe { std::ffi::CStr::from_ptr(url).to_string_lossy().into_owned() };
+    let url_str = unsafe { CStr::from_ptr(url).to_string_lossy().into_owned() };
     let response = reqwest::blocking::get(&url_str);
 
     match response {
@@ -60,14 +61,10 @@ pub extern "C" fn mintaka_http_get(url: *const c_char) -> FHttpResponse {
 
 #[no_mangle]
 pub extern "C" fn mintaka_http_post(url: *const c_char, body: *const c_char) -> FHttpResponse {
-    let url_str = unsafe { std::ffi::CStr::from_ptr(url).to_string_lossy().into_owned() };
-    let body_str = unsafe {
-        std::ffi::CStr::from_ptr(body)
-            .to_string_lossy()
-            .into_owned()
-    };
+    let url_str = unsafe { CStr::from_ptr(url).to_string_lossy().into_owned() };
+    let body_str = unsafe { CStr::from_ptr(body).to_string_lossy().into_owned() };
 
-    let client = reqwest::blocking::Client::new();
+    let client = Client::new();
     let response = client.post(&url_str).body(body_str).send();
 
     match response {
