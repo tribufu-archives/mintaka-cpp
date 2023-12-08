@@ -6,7 +6,7 @@ repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
 license = "Apache-2.0"
 edition = "2021"
-publish = false
+publish = true
 
 [lib]
 name = "mintaka_consts"
@@ -14,3 +14,10 @@ crate-type = ["rlib"]
 path = "lib.rs"
 
 [dependencies]
+
+[build-dependencies]
+vergen = { version = "=5.1.5", default-features = false, features = [
+    "build",
+    "cargo",
+    "rustc",
+] }

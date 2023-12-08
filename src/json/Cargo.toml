@@ -1,16 +1,18 @@
 [package]
-name = "mintaka-net"
+name = "mintaka-json"
 version = "0.0.4"
-description = "Mintaka Net"
+description = "Mintaka JSON"
 repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
-license = "Apache-2.0"
+license = "MIT"
 edition = "2021"
-publish = false
+publish = true
 
 [lib]
-name = "mintaka_net"
+name = "mintaka_json"
 crate-type = ["rlib"]
 path = "lib.rs"
 
 [dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

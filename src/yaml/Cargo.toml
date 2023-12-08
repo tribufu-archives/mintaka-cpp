@@ -1,16 +1,18 @@
 [package]
-name = "mintaka-http"
+name = "mintaka-yaml"
 version = "0.0.4"
-description = "Mintaka HTTP"
+description = "Mintaka YAML"
 repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
-license = "Apache-2.0"
+license = "MIT"
 edition = "2021"
-publish = false
+publish = true
 
 [lib]
-name = "mintaka_http"
+name = "mintaka_yaml"
 crate-type = ["rlib"]
 path = "lib.rs"
 
 [dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9.25"

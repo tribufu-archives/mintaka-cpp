@@ -1,16 +1,18 @@
 [package]
-name = "mintaka-time"
+name = "mintaka-ron"
 version = "0.0.4"
-description = "Mintaka Time"
+description = "Mintaka RON"
 repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
-license = "Apache-2.0"
+license = "MIT"
 edition = "2021"
-publish = false
+publish = true
 
 [lib]
-name = "mintaka_time"
+name = "mintaka_ron"
 crate-type = ["rlib"]
 path = "lib.rs"
 
 [dependencies]
+serde = { version = "1.0", features = ["derive"] }
+ron = "0.8.1"

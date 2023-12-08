@@ -6,7 +6,7 @@ repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
 license = "Apache-2.0"
 edition = "2021"
-publish = false
+publish = true
 
 [lib]
 name = "mintaka_native"
@@ -14,4 +14,4 @@ crate-type = ["rlib", "cdylib", "staticlib"]
 path = "lib.rs"
 
 [dependencies]
-mintaka = { path = "../.." }
+mintaka = { version = "0.0.4", path = "../.." }

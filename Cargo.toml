@@ -6,7 +6,7 @@ repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
 license = "Apache-2.0"
 edition = "2021"
-publish = false
+publish = true
 
 [lib]
 name = "mintaka"
@@ -19,9 +19,5 @@ members = ["src/*"]
 exclude = []
 
 [dependencies]
-mintaka-consts = { path = "./src/consts" }
-mintaka-fs = { path = "./src/fs" }
-mintaka-http = { path = "./src/http" }
-mintaka-io = { path = "./src/io" }
-mintaka-net = { path = "./src/net" }
-mintaka-time = { path = "./src/time" }
+mintaka-consts = { version = "0.0.4", path = "./src/consts" }
+mintaka-types = { version = "0.0.4",path = "./src/types" }
