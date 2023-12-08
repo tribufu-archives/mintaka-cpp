@@ -1,25 +1,27 @@
 #!/usr/bin/env pwsh
 
-echo "Building for windows-x86_64"
-cargo build -p mintaka-native --release
-New-Item "lib/windows/x86_64" -ItemType Directory -Force
-Remove-Item -Path "lib/windows/x86_64/*" -Force
-Copy-Item -Path "target/release/mintaka_native.dll" -Destination "lib/windows/x86_64" -Force
-Copy-Item -Path "target/release/mintaka_native.dll.lib" -Destination "lib/windows/x86_64" -Force
-Copy-Item -Path "target/release/mintaka_native.lib" -Destination "lib/windows/x86_64" -Force
+function Build-For-Architecture {
+    param(
+        [string]$Arch,
+    )
 
-echo "Building for windows-i686"
-cargo build -p mintaka-native --target i686-pc-windows-msvc --release
-New-Item "lib/windows/i686" -ItemType Directory -Force
-Remove-Item -Path "lib/windows/i686/*" -Force
-Copy-Item -Path "target/i686-pc-windows-msvc/release/mintaka_native.dll" -Destination "lib/windows/i686" -Force
-Copy-Item -Path "target/i686-pc-windows-msvc/release/mintaka_native.dll.lib" -Destination "lib/windows/i686" -Force
-Copy-Item -Path "target/i686-pc-windows-msvc/release/mintaka_native.lib" -Destination "lib/windows/i686" -Force
+    $OutputDir = "lib/windows/$Arch"
+    Write-Output "Building for $Arch"
 
-echo "Building for windows-aarch64"
-cargo build -p mintaka-native --target aarch64-pc-windows-msvc --release
-New-Item "lib/windows/aarch64" -ItemType Directory -Force
-Remove-Item -Path "lib/windows/aarch64/*" -Force
-Copy-Item -Path "target/aarch64-pc-windows-msvc/release/mintaka_native.dll" -Destination "lib/windows/aarch64" -Force
-Copy-Item -Path "target/aarch64-pc-windows-msvc/release/mintaka_native.dll.lib" -Destination "lib/windows/aarch64" -Force
-Copy-Item -Path "target/aarch64-pc-windows-msvc/release/mintaka_native.lib" -Destination "lib/windows/aarch64" -Force
+    cargo build -p mintaka-native --target $Arch-pc-windows-msvc --release
+
+    if (-not (Test-Path $OutputDir)) {
+        New-Item -ItemType Directory -Force -Path $OutputDir
+    }
+
+    Remove-Item -Path "$OutputDir/*" -Force
+    Copy-Item -Path "target/$Arch-pc-windows-msvc/release/mintaka_native.dll" -Destination $OutputDir -Force
+    Copy-Item -Path "target/$Arch-pc-windows-msvc/release/mintaka_native.dll.lib" -Destination $OutputDir -Force
+    Copy-Item -Path "target/$Arch-pc-windows-msvc/release/mintaka_native.lib" -Destination $OutputDir -Force
+}
+
+$architectures = @("aarch64", "i686", "x86_64")
+
+foreach ($arch in $architectures) {
+    Build-For-Architecture -Arch $arch
+}
