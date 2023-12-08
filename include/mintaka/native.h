@@ -4,46 +4,27 @@
 
 #include <mintaka/prelude.h>
 
-NATIVE_API void mintaka_fs_canonicalize_path(void);
+struct FHttpHeader
+{
+    const char *name;
+    const char *value;
+};
 
-NATIVE_API void mintaka_fs_copy_file(void);
+struct FHttpHeaders
+{
+    const struct FHttpHeader *entries;
+    uintptr_t count;
+};
 
-NATIVE_API void mintaka_fs_create_dir(void);
+struct FHttpResponse
+{
+    int status_code;
+    const struct FHttpHeaders *headers;
+    const char *body;
+};
 
-NATIVE_API void mintaka_fs_create_dir_all(void);
+NATIVE_API void mintaka_http_free_response(struct FHttpResponse response);
 
-NATIVE_API void mintaka_fs_create_hard_link(void);
+NATIVE_API struct FHttpResponse mintaka_http_get(const char *url);
 
-NATIVE_API void mintaka_fs_create_symlink(void);
-
-NATIVE_API void mintaka_fs_delete_dir(void);
-
-NATIVE_API void mintaka_fs_delete_dir_all(void);
-
-NATIVE_API void mintaka_fs_delete_file(void);
-
-NATIVE_API void mintaka_fs_get_metadata(void);
-
-NATIVE_API void mintaka_fs_read_dir(void);
-
-NATIVE_API void mintaka_fs_read_file(void);
-
-NATIVE_API void mintaka_fs_read_file_to_string(void);
-
-NATIVE_API void mintaka_fs_read_link(void);
-
-NATIVE_API void mintaka_fs_set_permissions(void);
-
-NATIVE_API void mintaka_fs_write_file(void);
-
-NATIVE_API void mintaka_http_delete(void);
-
-NATIVE_API void mintaka_http_get(void);
-
-NATIVE_API void mintaka_http_options(void);
-
-NATIVE_API void mintaka_http_patch(void);
-
-NATIVE_API void mintaka_http_post(void);
-
-NATIVE_API void mintaka_http_put(void);
+NATIVE_API struct FHttpResponse mintaka_http_post(const char *url, const char *body);

@@ -12,4 +12,4 @@ Copy-Item -Path "target/debug/mintaka_native.dll.lib" -Destination "bin/windows/
 Copy-Item -Path "target/debug/mintaka_native.lib" -Destination "bin/windows/x86_64" -Force
 Copy-Item -Path "target/debug/mintaka_native.pdb" -Destination "bin/windows/x86_64" -Force
 
-msbuild /p:Configuration="debug" /p:Platform="x86_64-pc-windows-msvc"
+msbuild /p:Configuration="debug" /p:Platform="windows-x86_64"

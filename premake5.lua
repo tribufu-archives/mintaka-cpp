@@ -7,24 +7,24 @@ workspace "mintaka"
 
 if _ACTION == "vs2022" then
     platforms {
-        "aarch64-pc-windows-msvc",
-        "i686-pc-windows-msvc",
-        "x86_64-pc-windows-msvc",
+        "windows-aarch64",
+        "windows-i686",
+        "windows-x86_64",
     }
 end
 
 if _ACTION == "gmake2" then
     platforms {
-        "aarch64-unknown-linux-gnu",
-        "i686-unknown-linux-gnu",
-        "x86_64-unknown-linux-gnu",
+        "linux-aarch64",
+        "linux-i686",
+        "linux-x86_64",
     }
 end
 
 if _ACTION == "xcode4" then
     platforms {
-        "aarch64-apple-darwin",
-        "x86_64-apple-darwin",
+        "mac-aarch64",
+        "mac-x86_64",
     }
 end
 

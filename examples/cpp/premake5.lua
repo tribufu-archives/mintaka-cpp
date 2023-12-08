@@ -5,8 +5,8 @@ project "example_cpp"
     kind "ConsoleApp"
     language "C"
 
-    targetdir("../../target/%{cfg.buildcfg}")
-    objdir("../../target/%{cfg.platform}/%{cfg.buildcfg}/examples/%{prj.name}")
+    targetdir("../../bin/%{cfg.platform:gsub('-', '/')}")
+    objdir("../../target/%{cfg.buildcfg}/%{cfg.platform}/%{prj.name}")
 
     files
     {
@@ -22,8 +22,7 @@ project "example_cpp"
 
     libdirs
     {
-        "../../target/%{cfg.buildcfg}",
-        "../../target/%{cfg.platform}/%{cfg.buildcfg}",
+        "../../bin/%{cfg.platform:gsub('-', '/')}",
     }
 
     -- Profile
@@ -51,7 +50,7 @@ project "example_cpp"
 
     -- Platform
 
-    filter { "platforms:*-pc-windows-msvc" }
+    filter { "platforms:windows-*" }
         system "windows"
         systemversion "latest"
         staticruntime "On"
@@ -73,7 +72,7 @@ project "example_cpp"
         {
         }
 
-    filter { "platforms:*-apple-darwin" }
+    filter { "platforms:mac-*" }
         system "macosx"
         systemversion "10.15"
 
@@ -95,7 +94,7 @@ project "example_cpp"
         {
         }
 
-    filter { "platforms:*-unknown-linux-gnu" }
+    filter { "platforms:linux-*" }
         system "linux"
 
         toolset "gcc"
@@ -116,7 +115,7 @@ project "example_cpp"
         {
         }
 
-    filter { "platforms:*-linux-android*" }
+    filter { "platforms:android-*" }
         system "android"
 
         toolset "clang"
@@ -137,7 +136,7 @@ project "example_cpp"
         {
         }
 
-    filter { "platforms:*-apple-ios" }
+    filter { "platforms:ios-*" }
         system "ios"
         systemversion "13.0"
 
@@ -157,7 +156,7 @@ project "example_cpp"
 
     -- Architecture
 
-    filter { "platforms:i686-*" }
+    filter { "platforms:*-i686" }
         architecture "x32"
 
         defines
@@ -166,7 +165,7 @@ project "example_cpp"
             "MINTAKA_I686",
         }
 
-    filter { "platforms:x86_64-*" }
+    filter { "platforms:*-x86_64" }
         architecture "x64"
 
         defines
@@ -175,7 +174,7 @@ project "example_cpp"
             "MINTAKA_X8664",
         }
 
-    filter { "platforms:aarch64-*" }
+    filter { "platforms:*-aarch64" }
         architecture "ARM64"
 
         defines
