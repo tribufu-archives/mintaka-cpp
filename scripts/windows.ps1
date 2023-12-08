@@ -2,7 +2,7 @@
 
 function Build-For-Architecture {
     param(
-        [string]$Arch,
+        [string]$Arch
     )
 
     $OutputDir = "lib/windows/$Arch"
