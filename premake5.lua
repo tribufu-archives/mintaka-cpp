@@ -2,7 +2,6 @@
 
 workspace "mintaka"
     location "."
-
     configurations { "debug", "release" }
 
 if _ACTION == "vs2022" then
