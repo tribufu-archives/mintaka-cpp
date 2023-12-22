@@ -1,0 +1,4 @@
+[submodule "vendor/premake-core"]
+	path = vendor/premake-core
+	url = https://github.com/TribufuForks/premake-core
+	branch = vendor

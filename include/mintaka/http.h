@@ -19,6 +19,17 @@ namespace mintaka
         ~HttpClient()
         {
         }
+
+        FHttpResponse get(std::string &url)
+        {
+            return mintaka_http_get(url.c_str());
+        }
+
+        FHttpResponse post(std::string &url, json &body)
+        {
+            std::string body_str = body.dump();
+            return mintaka_http_post(url.c_str(), body_str.c_str());
+        }
     };
 
     class HttpRequest

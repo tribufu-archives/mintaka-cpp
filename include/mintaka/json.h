@@ -10,20 +10,4 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
-namespace mintaka
-{
-    namespace Json
-    {
-        static std::string from_string(std::string &str)
-        {
-            return json::parse(str);
-        }
-
-        static std::string to_string(json value)
-        {
-            return value.dump();
-        }
-    };
-}
-
 #endif
