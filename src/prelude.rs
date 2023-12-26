@@ -1,4 +1,4 @@
-// Copyright (c) TribuFu. All Rights Reserved.
+// Copyright (c) Tribufu. All Rights Reserved.
 
 pub use crate::types::arch::DeviceArch;
 pub use crate::types::platform::DevicePlatform;

@@ -1,7 +1,7 @@
 [package]
-name = "mintaka-json"
+name = "mintaka-log"
 version = "0.0.4"
-description = "Mintaka JSON"
+description = "Mintaka Log"
 repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
 license = "MIT"
@@ -9,11 +9,12 @@ edition = "2021"
 publish = true
 
 [lib]
-name = "mintaka_json"
+name = "mintaka_log"
 crate-type = ["rlib"]
 path = "lib.rs"
 
 [dependencies]
-mintaka-error = { path = "../error" }
+chrono = "0.4.23"
+env_logger = "0.10.1"
+log = "0.4"
 serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
