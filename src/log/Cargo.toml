@@ -1,6 +1,6 @@
 [package]
 name = "mintaka-log"
-version = "0.0.4"
+version = "0.0.5"
 description = "Mintaka Log"
 repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]

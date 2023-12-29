@@ -4,7 +4,7 @@
 
 use chrono::prelude::*;
 pub use env_logger::fmt::Color;
-use env_logger::Builder;
+use env_logger::{Builder, Target};
 pub use log::debug;
 pub use log::error;
 pub use log::info;
@@ -69,6 +69,7 @@ impl Logger {
 
     pub fn init(mut self) {
         self.builder
+            .target(Target::Stdout)
             .format(|fmt, record| {
                 let mut style = fmt.style();
 
