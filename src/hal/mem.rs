@@ -1,7 +1,6 @@
 // Copyright (c) Tribufu. All Rights Reserved.
 
 use crate::sys;
-use sysinfo::SystemExt;
 
 /// Returns the total memory of the current system.
 pub fn get_total_memory() -> u64 {

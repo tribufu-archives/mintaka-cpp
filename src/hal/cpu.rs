@@ -1,7 +1,6 @@
 // Copyright (c) Tribufu. All Rights Reserved.
 
 use crate::sys;
-use sysinfo::{CpuExt, SystemExt};
 
 /// Returns the number of physical cores of the current CPU.
 pub fn get_physical_cores() -> usize {
@@ -15,18 +14,14 @@ pub fn get_logical_cores() -> usize {
 
 /// Returns the model of the current CPU.
 pub fn get_processor_model() -> String {
-    sys::get_system_info()
-        .global_cpu_info()
-        .brand()
-        .trim()
-        .to_string()
+    let mut sys = sys::get_system_info();
+    sys.refresh_cpu();
+    sys.cpus()[0].brand().trim().to_string()
 }
 
 /// Returns the vendor of the current CPU.
 pub fn get_processor_vendor() -> String {
-    sys::get_system_info()
-        .global_cpu_info()
-        .vendor_id()
-        .trim()
-        .to_string()
+    let mut sys = sys::get_system_info();
+    sys.refresh_cpu();
+    sys.cpus()[0].vendor_id().trim().to_string()
 }
