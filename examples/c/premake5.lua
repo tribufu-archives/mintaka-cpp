@@ -67,7 +67,7 @@ project "example_c"
 
         links
         {
-            "mintaka_native.dll.lib",
+            "mintaka.dll.lib",
         }
 
         prelinkcommands
@@ -89,7 +89,7 @@ project "example_c"
 
         links
         {
-            "mintaka_native",
+            "mintaka",
         }
 
         prelinkcommands
@@ -110,7 +110,7 @@ project "example_c"
 
         links
         {
-            "mintaka_native",
+            "mintaka",
         }
 
         prelinkcommands
@@ -131,7 +131,7 @@ project "example_c"
 
         links
         {
-            "mintaka_native",
+            "mintaka",
         }
 
         prelinkcommands
@@ -153,7 +153,7 @@ project "example_c"
 
         links
         {
-            "mintaka_native",
+            "mintaka",
         }
 
     -- Architecture

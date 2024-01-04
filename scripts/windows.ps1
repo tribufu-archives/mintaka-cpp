@@ -15,9 +15,9 @@ function Build-For-Architecture {
     }
 
     Remove-Item -Path "$OutputDir/*" -Force
-    Copy-Item -Path "target/$Arch-pc-windows-msvc/debug/mintaka_native.dll" -Destination $OutputDir -Force
-    Copy-Item -Path "target/$Arch-pc-windows-msvc/debug/mintaka_native.dll.lib" -Destination $OutputDir -Force
-    Copy-Item -Path "target/$Arch-pc-windows-msvc/debug/mintaka_native.lib" -Destination $OutputDir -Force
+    Copy-Item -Path "target/$Arch-pc-windows-msvc/debug/mintaka.dll" -Destination $OutputDir -Force
+    Copy-Item -Path "target/$Arch-pc-windows-msvc/debug/mintaka.dll.lib" -Destination $OutputDir -Force
+    Copy-Item -Path "target/$Arch-pc-windows-msvc/debug/mintaka.lib" -Destination $OutputDir -Force
 }
 
 $architectures = @("aarch64", "i686", "x86_64")

@@ -9,9 +9,10 @@ edition = "2021"
 publish = true
 
 [lib]
-name = "mintaka_native"
-crate-type = ["rlib", "cdylib", "staticlib"]
+name = "mintaka"
+crate-type = ["cdylib", "staticlib"]
 path = "lib.rs"
+doc = false
 
 [dependencies]
 mintaka = { version = "0.0.4", path = "../.." }

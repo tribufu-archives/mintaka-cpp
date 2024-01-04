@@ -15,8 +15,8 @@ build_for_architecture() {
         reg.tribufu.com/cross:linux-$ARCH \
         cargo build --target $ARCH-unknown-linux-gnu --package mintaka-native
 
-    cp target/$ARCH-unknown-linux-gnu/debug/libmintaka_native.so $OUTPUT_DIR
-    cp target/$ARCH-unknown-linux-gnu/debug/libmintaka_native.a $OUTPUT_DIR
+    cp target/$ARCH-unknown-linux-gnu/debug/libmintaka.so $OUTPUT_DIR
+    cp target/$ARCH-unknown-linux-gnu/debug/libmintaka.a $OUTPUT_DIR
 }
 
 architectures=("aarch64" "i686" "x86_64")

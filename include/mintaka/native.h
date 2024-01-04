@@ -24,6 +24,16 @@ struct FHttpResponse
 };
 
 /**
+ * The timestamp that has been compiled.
+ */
+NATIVE_API const char *mintaka_get_build_timestamp(void);
+
+/**
+ * The current cargo build profile.
+ */
+NATIVE_API const char *mintaka_get_cargo_profile(void);
+
+/**
  * Returns the model of the current CPU.
  */
 NATIVE_API const char *mintaka_get_cpu_model(void);
@@ -54,6 +64,11 @@ NATIVE_API const char *mintaka_get_host_name(void);
 NATIVE_API const char *mintaka_get_kernel_version(void);
 
 /**
+ * The LLVM version of the Rust compiler.
+ */
+NATIVE_API const char *mintaka_get_llvm_version(void);
+
+/**
  * Returns the number of logical cores of the current CPU.
  */
 NATIVE_API uint64_t mintaka_get_logical_cores(void);
@@ -62,6 +77,16 @@ NATIVE_API uint64_t mintaka_get_logical_cores(void);
  * Returns the number of physical cores of the current CPU.
  */
 NATIVE_API uint64_t mintaka_get_physical_cores(void);
+
+/**
+ * The release channel of the Rust compiler.
+ */
+NATIVE_API const char *mintaka_get_rust_channel(void);
+
+/**
+ * The version of the Rust compiler.
+ */
+NATIVE_API const char *mintaka_get_rust_version(void);
 
 /**
  * Returns the edition of the current system.
@@ -84,6 +109,11 @@ NATIVE_API uint64_t mintaka_get_system_uptime(void);
 NATIVE_API const char *mintaka_get_system_version(void);
 
 /**
+ * The target triple that is being compiled for.
+ */
+NATIVE_API const char *mintaka_get_target_triple(void);
+
+/**
  * Returns the total memory of the current system.
  */
 NATIVE_API uint64_t mintaka_get_total_memory(void);
@@ -102,6 +132,11 @@ NATIVE_API uint64_t mintaka_get_used_memory(void);
  * Returns the used swap of the current system.
  */
 NATIVE_API uint64_t mintaka_get_used_swap(void);
+
+/**
+ * Get the current version of this library.
+ */
+NATIVE_API const char *mintaka_get_version(void);
 
 NATIVE_API void mintaka_http_free_response(struct FHttpResponse response);
 
