@@ -25,7 +25,7 @@ pub struct SqliteDatabaseFactory {
 }
 
 impl SqliteDatabaseFactory {
-    pub const SQLITE_DATABASE: &str = "data.db";
+    pub const SQLITE_DATABASE: &'static str = "data.db";
 
     pub async fn create(&self) -> SqliteDatabase {
         let pool = SqlitePool::connect(&self.url()).await.unwrap();

@@ -29,11 +29,11 @@ pub struct PostgresDatabaseFactory {
 }
 
 impl PostgresDatabaseFactory {
-    pub const POSTGRES_HOST: &str = "localhost";
+    pub const POSTGRES_HOST: &'static str = "localhost";
     pub const POSTGRES_PORT: u16 = 3306;
-    pub const POSTGRES_USER: &str = "root";
-    pub const POSTGRES_PASSWORD: &str = "";
-    pub const POSTGRES_DATABASE: &str = "";
+    pub const POSTGRES_USER: &'static str = "root";
+    pub const POSTGRES_PASSWORD: &'static str = "";
+    pub const POSTGRES_DATABASE: &'static str = "";
 
     pub async fn create(&self) -> PostgresDatabase {
         let pool = PgPool::connect(&self.url()).await.unwrap();

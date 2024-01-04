@@ -1,5 +1,6 @@
 // Copyright (c) Tribufu. All Rights Reserved.
 
+pub use crate::log;
 pub use crate::types::arch::DeviceArch;
 pub use crate::types::platform::DevicePlatform;
 pub use crate::BUILD_TIMESTAMP;

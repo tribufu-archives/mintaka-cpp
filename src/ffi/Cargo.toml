@@ -1,7 +1,7 @@
 [package]
-name = "mintaka-hal"
+name = "mintaka-ffi"
 version = "0.0.4"
-description = "Mintaka HAL"
+description = "Mintaka FFI"
 repository = "https://github.com/Tribufu/Mintaka"
 authors = ["Tribufu <contact@tribufu.com>"]
 license = "MIT"
@@ -9,12 +9,12 @@ edition = "2021"
 publish = true
 
 [lib]
-name = "mintaka_hal"
+name = "mintaka_ffi"
 crate-type = ["rlib"]
 path = "lib.rs"
 
 [dependencies]
+mintaka-error = { path = "../error" }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-num_cpus = "1.13.0"
-sysinfo = "0.30.2"
+libc = "0.2.0"

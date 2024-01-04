@@ -19,6 +19,8 @@ members = ["src/*"]
 exclude = []
 
 [dependencies]
-mintaka-hal = { version = "0.0.4", path = "./src/hal" }
 mintaka-consts = { version = "0.0.4", path = "./src/consts" }
+mintaka-ffi = { version = "0.0.4", path = "./src/ffi" }
+mintaka-hal = { version = "0.0.4", path = "./src/hal" }
+mintaka-log = { version = "0.0.5", path = "./src/log" }
 mintaka-types = { version = "0.0.4",path = "./src/types" }

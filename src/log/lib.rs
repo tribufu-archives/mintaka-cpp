@@ -10,15 +10,17 @@ pub use log::error;
 pub use log::info;
 pub use log::trace;
 pub use log::warn;
-pub use log::Level;
+use log::Level;
 use log::LevelFilter;
 use serde::{Deserialize, Serialize};
 use std::io::Write;
 
 pub mod colors;
 
+const MINTAKA_ENV_FILTER: &'static str = "MINTAKA_LOG";
+
 pub fn init() {
-    let logger = Logger::from_env();
+    let logger = Logger::from_env(None);
     logger.init();
 }
 
@@ -28,7 +30,7 @@ pub fn init_level(level: LogLevel) {
 }
 
 #[derive(Debug, Copy, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[serde(rename_all = "lowercase")]
 pub enum LogLevel {
     Off,
     Error,
@@ -62,8 +64,8 @@ impl Logger {
         Self { builder }
     }
 
-    pub fn from_env() -> Self {
-        let builder = Builder::from_env("MINTAKA_LOG");
+    pub fn from_env(var: Option<String>) -> Self {
+        let builder = Builder::from_env(var.unwrap_or(MINTAKA_ENV_FILTER.to_string()));
         Self { builder }
     }
 

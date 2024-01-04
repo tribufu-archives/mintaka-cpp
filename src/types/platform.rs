@@ -7,6 +7,7 @@ use std::fmt::{Debug, Display, Formatter, Result};
 #[repr(u8)]
 #[non_exhaustive]
 #[derive(Copy, Clone, Debug, Hash, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
 pub enum DevicePlatform {
     Windows,
     Linux,

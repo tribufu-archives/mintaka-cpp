@@ -33,11 +33,11 @@ pub struct MySqlDatabaseFactory {
 }
 
 impl MySqlDatabaseFactory {
-    pub const MYSQL_HOST: &str = "localhost";
+    pub const MYSQL_HOST: &'static str = "localhost";
     pub const MYSQL_PORT: u16 = 3306;
-    pub const MYSQL_USER: &str = "root";
-    pub const MYSQL_PASSWORD: &str = "";
-    pub const MYSQL_DATABASE: &str = "";
+    pub const MYSQL_USER: &'static str = "root";
+    pub const MYSQL_PASSWORD: &'static str = "";
+    pub const MYSQL_DATABASE: &'static str = "";
 
     pub async fn create(&self) -> MySqlDatabase {
         let pool = MySqlPool::connect(&self.url()).await.unwrap();
