@@ -1,4 +1,4 @@
-# Mintaka
+# Mintaka C++
 
 C/C++ shared libraries.
 
