@@ -15,6 +15,6 @@ path = "src/lib.rs"
 doc = false
 
 [dependencies]
-mintaka = { version = "0.0.4", path = "../MintakaRust" }
+mintaka = { version = "0.0.4", git = "https://github.com/Tribufu/MintakaRust" }
 reqwest = { version = "0.11.18", features = ["gzip", "json", "blocking"] }
 libc = "0.2"
