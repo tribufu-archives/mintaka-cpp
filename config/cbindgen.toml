@@ -1,5 +1,5 @@
 language = "C"
-header = "// Copyright (c) Tribufu. All Rights Reserved."
+header = "// Copyright (c) Tribufu. All Rights Reserved.\n// SPDX-License-Identifier: MIT"
 pragma_once = true
 include_version = false
 namespaces = []
