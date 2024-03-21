@@ -1,4 +1,5 @@
 // Copyright (c) Tribufu. All Rights Reserved.
+// SPDX-License-Identifier: MIT
 
 use libc::{c_char, c_int};
 use reqwest::blocking::Client;

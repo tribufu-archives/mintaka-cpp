@@ -1,4 +1,5 @@
 // Copyright (c) Tribufu. All Rights Reserved.
+// SPDX-License-Identifier: MIT
 
 use mintaka::ffi::{c_char, to_string};
 use mintaka::prelude::*;
